@@ -7,8 +7,30 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="https://flopkart-mfe-home.herokuapp.com/static/flopkart-home-mfe.js"></script>
-  <script src="https://flopkart-mfe-cart.herokuapp.com/static/flopkart-cart-mfe.js"></script>
+  <!-- <script src="https://flopkart-mfe-home.herokuapp.com/static/flopkart-home-mfe.js"></script>
+  <script src="https://flopkart-mfe-cart.herokuapp.com/static/flopkart-cart-mfe.js"></script> -->
+  <script>
+    loadScript(scriptUrl){
+      return new Promise(function (res, rej) {
+        let script = document.createElement('script');
+        script.src = scriptUrl;
+        script.type = 'text/javascript';
+        script.onError = err;
+        script.async = true;
+        script.onload = res;
+        script.addEventListener('error',err);
+        script.addEventListener('load',res);
+        document.head.appendChild(script);
+      })
+    }
+    loadScript("https://flopkart-mfe-home.herokuapp.com/static/flopkart-home-mfe.js")
+      .then(() => { console.log("loaded"); })
+      .catch(() => { console.log("error"); });
+    loadScript("https://flopkart-mfe-cart.herokuapp.com/static/flopkart-cart-mfe.js")
+      .then(() => { console.log("loaded"); })
+      .catch(() => { console.log("error"); });
+
+  </script>
 </head>
 <body>
   <app-flopkart></app-flopkart>
