@@ -11,7 +11,7 @@
   <script src="https://flopkart-mfe-cart.herokuapp.com/static/flopkart-cart-mfe.js"></script> -->
   <script>
     function loadScript(scriptUrl) {
-      return new Promise(function (res, rej) {
+      try {
         let script = document.createElement('script');
         script.src = scriptUrl;
         script.type = 'text/javascript';
@@ -21,27 +21,13 @@
         script.addEventListener('error',rej);
         script.addEventListener('load',res);
         document.head.appendChild(script);
-      })
+      }
+      catch(e) {
+        console.log('caught error', e);
+      }
     }
-    loadScript("https://flopkart-mfe-home.herokuapp.com/static/flopkart-home-mfe.js")
-    .then(() => { console.log("loaded"); })
-    .catch((e) => {
-        fetch("https://flopkart-mfe-home.herokuapp.com/static/flopkart-home-mfe.js")
-        .then(()=>{})
-        .catch((e)=>{
-          alert('Here we can call backup container!!',e);
-        })
-      });
-    loadScript("https://flopkart-mfe-cart.herokuapp.com/static/flopkart-cart-mfe.js")
-    .then(() => { console.log("loaded"); })
-    .catch((e) => {
-      fetch("https://flopkart-mfe-home.herokuapp.com/static/flopkart-home-mfe.js")
-        .then(()=>{})
-        .catch((e)=>{
-          alert('Here we can call backup container!!',e);
-        })
-      });
-    setTimeout(()=>{},200)
+    loadScript("https://flopkart-mfe-home.herokuapp.com/static/flopkart-home-mfe.js");
+    loadScript("https://flopkart-mfe-cart.herokuapp.com/static/flopkart-cart-mfe.js");
   </script>
 </head>
 <body>
