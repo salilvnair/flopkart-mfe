@@ -15,10 +15,10 @@
         let script = document.createElement('script');
         script.src = scriptUrl;
         script.type = 'text/javascript';
-        script.onError = err;
+        script.onError = rej;
         script.async = true;
         script.onload = res;
-        script.addEventListener('error',err);
+        script.addEventListener('error',rej);
         script.addEventListener('load',res);
         document.head.appendChild(script);
       })
