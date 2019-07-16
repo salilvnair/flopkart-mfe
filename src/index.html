@@ -25,10 +25,10 @@
     }
     loadScript("https://flopkart-mfe-home.herokuapp.com/static/flopkart-home-mfe.js")
       .then(() => { console.log("loaded"); })
-      .catch(() => { console.log("error"); });
+      .catch((e) => { console.log("error",e); });
     loadScript("https://flopkart-mfe-cart.herokuapp.com/static/flopkart-cart-mfe.js")
       .then(() => { console.log("loaded"); })
-      .catch(() => { console.log("error"); });
+      .catch((e) => { console.log("error",e); });
 
   </script>
 </head>
