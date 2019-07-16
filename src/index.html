@@ -10,7 +10,7 @@
   <!-- <script src="https://flopkart-mfe-home.herokuapp.com/static/flopkart-home-mfe.js"></script>
   <script src="https://flopkart-mfe-cart.herokuapp.com/static/flopkart-cart-mfe.js"></script> -->
   <script>
-    loadScript(scriptUrl){
+    function loadScript(scriptUrl) {
       return new Promise(function (res, rej) {
         let script = document.createElement('script');
         script.src = scriptUrl;
